@@ -20,7 +20,7 @@ jobs: # a collection of steps
         environment:
           MYSQL_ALLOW_EMPTY_PASSWORD: true
           MYSQL_ROOT_PASSWORD: password
-          MYSQL_DATABASE: db
+          MYSQL_DATABASE: app_test
       # - image: circleci/postgres:9.5-alpine # database image
       #   environment: # environment variables for database
       #     POSTGRES_USER: circleci-demo-ruby
