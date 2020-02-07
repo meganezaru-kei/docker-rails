@@ -13,9 +13,9 @@ jobs: # a collection of steps
           # PGHOST: 127.0.0.1
           # PGUSER: circleci-demo-ruby
           # RAILS_ENV: test
-          DB_HOST: 127.0.0.1
-          DB_USERNAME: root
-          DB_PASSWORD: password
+          # DB_HOST: 127.0.0.1
+          # DB_USERNAME: root
+          # DB_PASSWORD: password
       - image: circleci/mysql:5.7
         environment:
           # MYSQL_ALLOW_EMPTY_PASSWORD: true
