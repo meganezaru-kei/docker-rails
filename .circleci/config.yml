@@ -5,9 +5,11 @@ jobs: # a collection of steps
     docker: # run the steps with Docker
       - image: circleci/ruby:2.5.1-node-browsers # ...with this image as the primary container; this is where all `steps` will run
         environment: # environment variables for primary container
-         - RAILS_ENV: 'test'
-         - PGHOST: 127.0.0.1
-         - PGUSER: root
+          RAILS_ENV: test
+          MYSQL_HOST: 127.0.0.1
+          MYSQL_USERNAME: 'root'
+          MYSQL_PASSWORD: 'password'
+          MYSQL_PORT: 3306
           # - BUNDLER_VERSION: 2.0.2
           # BUNDLE_JOBS: 3
           # BUNDLE_RETRY: 3
@@ -20,7 +22,7 @@ jobs: # a collection of steps
           # DB_PASSWORD: password
       - image: circleci/mysql:5.7
         environment:
-          # MYSQL_ALLOW_EMPTY_PASSWORD: true
+          MYSQL_ALLOW_EMPTY_PASSWORD: true
           MYSQL_USER: root
           MYSQL_ROOT_PASSWORD: password
           MYSQL_DATABASE: db
