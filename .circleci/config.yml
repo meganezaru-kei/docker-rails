@@ -37,7 +37,8 @@ jobs: # a collection of steps
           command: dockerize -wait tcp://127.0.0.1:3306 -timeout 1m
       - run:
           name: データベースのセットアップ
-          command: bundle exec rake db:schema:load
+          # command: bundle exec rake db:schema:load
+          command: bin/rails db:schema:load --trace
       - run: 
           name: テストの実行
           command: bundle exec rspec
