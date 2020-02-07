@@ -19,7 +19,7 @@ jobs: # a collection of steps
       - image: circleci/mysql:5.7
         environment:
           MYSQL_ALLOW_EMPTY_PASSWORD: true
-          MYSQL_ROOT_PASSWORD: 'password'
+          MYSQL_ROOT_PASSWORD: ''
           MYSQL_DATABASE: ci_rails_sample_test
       # - image: circleci/postgres:9.5-alpine # database image
       #   environment: # environment variables for database
@@ -35,12 +35,12 @@ jobs: # a collection of steps
       - run:
           name: データベースの起動を待機
           command: dockerize -wait tcp://127.0.0.1:3306 -timeout 1m
-      # - run:
-      #     name: データベースのセットアップ
-      #     command: bundle exec rake db:schema:load
-      # - run: 
-      #     name: テストの実行
-      #     command: bundle exec rspec
+      - run:
+          name: データベースのセットアップ
+          command: bundle exec rake db:schema:load
+      - run: 
+          name: テストの実行
+          command: bundle exec rspec
           
 
       # # Which version of bundler?
