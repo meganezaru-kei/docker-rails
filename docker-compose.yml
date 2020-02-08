@@ -9,6 +9,7 @@ services:
       - 3000:3000
     depends_on:
       - db
+      - test-db
     tty: true
     stdin_open: true
   db:
@@ -16,6 +17,13 @@ services:
     volumes:
       - db-volume:/var/lib/mysql
     environment:
+      MYSQL_ROOT_PASSWORD: password
+  test-db:
+    image: mysql:5.7
+    environment:
+      MYSQL_USER: 'root'
+      MYSQL_PASSWORD: ''
+      MYSQL_DATABASE: app_test
       MYSQL_ROOT_PASSWORD: password
 volumes:
   db-volume:
