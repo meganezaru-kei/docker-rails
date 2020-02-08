@@ -20,6 +20,8 @@ services:
       MYSQL_ROOT_PASSWORD: password
   test-db:
     image: mysql:5.7
+    volumes:
+      - db-volume:/var/lib/mysql
     environment:
       MYSQL_USER: 'root'
       MYSQL_PASSWORD: ''
