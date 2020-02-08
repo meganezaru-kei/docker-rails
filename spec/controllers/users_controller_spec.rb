@@ -9,7 +9,7 @@ RSpec.describe UsersController, type: :controller do
     end
 
     it 'newテンプレートをレンダリングすること' do
-      expect(response).to render_template :new
+      expect(response).to render_template :create
     end
 
     it '新しいuserオブジェクトがビューに渡されること' do
