@@ -13,6 +13,8 @@ jobs:
       - image: circleci/mysql:5.7
         environment:
           MYSQL_ALLOW_EMPTY_PASSWORD: true
+          MYSQL_USER: 'root'
+          MYSQL_PASSWORD: ''
           MYSQL_ROOT_PASSWORD: password
           MYSQL_DATABASE: app_test
 
